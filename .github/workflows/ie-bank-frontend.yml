@@ -20,10 +20,10 @@ jobs:
     environment: Development
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18.x'
           cache: 'npm'
@@ -47,10 +47,10 @@ jobs:
     environment: UAT
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18.x'
           cache: 'npm'
@@ -74,10 +74,10 @@ jobs:
     environment: Production
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18.x'
           cache: 'npm'
@@ -116,7 +116,7 @@ jobs:
 
       - name: Deploy to Azure Web App (Dev)
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.FRONTEND_WEBAPP_DEV }}
           package: dist-dev/
@@ -141,7 +141,7 @@ jobs:
 
       - name: Deploy to Azure Web App (UAT)
         id: deploy-to-webapp-uat
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.FRONTEND_WEBAPP_UAT }}
           package: dist-uat/
@@ -166,7 +166,7 @@ jobs:
 
       - name: Deploy to Azure Web App (Prod)
         id: deploy-to-webapp-prod
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.FRONTEND_WEBAPP_PROD }}
           package: dist-prod/
